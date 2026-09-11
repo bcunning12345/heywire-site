@@ -2,7 +2,7 @@
   <div class="container site-footer__inner">
     <div class="site-footer__brand">
       <a href="/" aria-label="{{ site.name }} home">{% include "svg/mark-white.svg" %}</a>
-      <div class="site-footer__parent">An {{ site.parent | replace(" LLC", "") }} company</div>
+      <div class="site-footer__parent">By {{ site.parent | replace(" LLC", "") }}</div>
     </div>
     <ul class="site-footer__nav">
       {% for item in site.footerNav %}
@@ -12,7 +12,7 @@
     <div class="site-footer__meta">
       {% if site.address %}<div>{{ site.address }}</div>{% endif %}
       <div>{% if site.phone %}<a href="{{ site.phoneHref }}">{{ site.phone }}</a> · {% endif %}<a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
-      <div>{% if site.license %}License {{ site.license }} · {% endif %}© {% year %} {{ site.parent }}</div>
+      <div>{% if site.license %}License {{ site.license }} · {% endif %}© {% year %} {{ site.parent }}, doing business as {{ site.name }}</div>
     </div>
   </div>
 </footer>
