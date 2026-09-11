@@ -1,0 +1,44 @@
+---
+layout: layouts/base.njk
+title: Services
+description: Structured cabling, fiber, Wi-Fi drops, cameras and access control, AV, guest room technology, closet cleanup, and moves, adds, and changes.
+---
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Services</p>
+    <h1 class="h1">Everything low voltage, one HEY.</h1>
+    <p class="lede">If it carries data, video, or a signal through a building, we pull it, terminate it, test it, and label it. Here is what that covers.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-list">
+      {% for s in site.services %}
+      <article class="service" id="{{ s.slug }}">
+        <div class="service__head">
+          <h2 class="h3">{{ s.title }}</h2>
+          <p class="service__short">{{ s.short }}</p>
+        </div>
+        <p class="service__text">{{ s.text }}</p>
+        <a class="link-arrow" href="/say-hey/?service={{ s.slug }}">Price this</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--white">
+  <div class="container">
+    <h2 class="h2">Every job ships with</h2>
+    <ul class="proof">
+      <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Certification results for every run, to category or fiber spec.</span></li>
+      <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Labels at both ends and an as-built showing where everything goes.</span></li>
+      <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>A clean site. Ceiling tiles back, dust gone, nothing left in a hallway.</span></li>
+    </ul>
+  </div>
+</section>
+
+{% set ctaTitle = "Not sure which one you need?" %}
+{% set ctaText = "Describe the job in plain words. The estimator sorts it into the right service and prices it." %}
+{% include "partials/cta.njk" %}

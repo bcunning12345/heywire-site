@@ -1,0 +1,51 @@
+---
+layout: layouts/base.njk
+title: How it works
+description: Quote in about a minute, schedule a window that works around your guests, and a crew is dispatched with the price already agreed.
+---
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">How it works</p>
+    <h1 class="h1">Three steps. No runaround.</h1>
+    <p class="lede">Most cabling companies make you call around, wait for a site walk, and then wait again for a number. We built HEYwire so the number comes first.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <ol class="timeline">
+      {% for step in site.steps %}
+      <li class="timeline__item">
+        <div class="timeline__marker">{{ loop.index }}</div>
+        <div class="timeline__body">
+          <h2 class="h3">{{ step.title }}</h2>
+          <p>{{ step.text }}</p>
+          {% if loop.index == 1 %}
+          <p class="muted">You answer four questions: property type, what needs wiring, how many, and where. Standard jobs get a fixed price on the spot. Anything unusual gets flagged and we call you before we commit to a number.</p>
+          {% elif loop.index == 2 %}
+          <p class="muted">Days, nights, turnover days, or between check-out and check-in. You choose. The crew, the materials, and the work order are locked to that window.</p>
+          {% else %}
+          <p class="muted">The crew arrives knowing the scope, the route, and the price. When they leave you have test results, labels, an as-built, and a clean site.</p>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section--white">
+  <div class="container">
+    <p class="eyebrow">Questions we get</p>
+    <div class="faq">
+      {% for item in site.faq %}
+      <details class="faq__item">
+        <summary class="faq__q">{{ item.q }}</summary>
+        <p class="faq__a">{{ item.a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}

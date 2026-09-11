@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+description: Low-voltage cabling for hotels and resorts. Real-time quotes, straight pricing, and a crew on the calendar. Just say HEY.
+---
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow">Low-voltage cabling for hotels and resorts</p>
+      <h1 class="h1">Need a wire pulled?<br>Just say HEY.</h1>
+      <p class="lede">Real-time quotes, straight pricing, and a crew on the calendar. From one drop to every room on the property.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--large" href="/say-hey/">Get an instant quote {% include "svg/arrow.svg" %}</a>
+        <a class="link-arrow" href="/how-it-works/">See how it works</a>
+      </div>
+      <p class="hero__region"><span class="stripe stripe--inline" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Serving properties across {{ site.region }}</p>
+    </div>
+    {% include "partials/quote-card.njk" %}
+  </div>
+</section>
+
+{% include "partials/steps.njk" %}
+{% include "partials/proof.njk" %}
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">What we wire</p>
+    <div class="grid grid--4">
+      {% for s in site.services %}
+      <a class="card card--link" href="/services/#{{ s.slug }}">
+        <h3 class="card__title">{{ s.title }}</h3>
+        <p class="card__text">{{ s.short }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}

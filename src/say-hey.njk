@@ -1,0 +1,110 @@
+---
+layout: layouts/base.njk
+title: Say HEY
+description: Get an instant, fixed-price quote for low-voltage cabling. Four questions, about a minute.
+---
+<section class="page-head page-head--tight">
+  <div class="container">
+    <p class="eyebrow">Say HEY</p>
+    <h1 class="h1">Tell us what you need.</h1>
+    <p class="lede">Four questions about the job, two about you. A fixed price comes back in writing.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container quote-page">
+    <form class="quote-form card" id="quote-form" data-endpoint="{{ site.quoteEndpoint or '' }}" data-phone="{{ site.phone }}" novalidate>
+      <fieldset class="quote-form__group">
+        <legend class="eyebrow">The job</legend>
+        <label class="field">
+          <span class="field__label">Property type</span>
+          <select class="field__input" name="property" required>
+            {% for p in site.propertyTypes %}<option>{{ p }}</option>{% endfor %}
+          </select>
+        </label>
+        <label class="field">
+          <span class="field__label">What needs wiring</span>
+          <select class="field__input" name="service" required>
+            {% for s in site.services %}<option value="{{ s.slug }}">{{ s.title }}</option>{% endfor %}
+          </select>
+        </label>
+        <div class="field-row">
+          <label class="field">
+            <span class="field__label">How many</span>
+            <input class="field__input" type="number" name="quantity" min="1" placeholder="24" inputmode="numeric" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Where</span>
+            <input class="field__input" type="text" name="location" placeholder="City, ST" autocomplete="address-level2" required>
+          </label>
+        </div>
+        <label class="field">
+          <span class="field__label">When</span>
+          <select class="field__input" name="timing">
+            <option>As soon as possible</option>
+            <option>Within 30 days</option>
+            <option>Planning for later this year</option>
+            <option>Just pricing for now</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field__label">Anything else <span class="field__opt">optional</span></span>
+          <textarea class="field__input field__input--area" name="notes" rows="3" placeholder="Floors, ceiling type, deadlines, a property list, or what the last contractor left behind."></textarea>
+        </label>
+      </fieldset>
+
+      <fieldset class="quote-form__group">
+        <legend class="eyebrow">You</legend>
+        <div class="field-row">
+          <label class="field">
+            <span class="field__label">Name</span>
+            <input class="field__input" type="text" name="name" autocomplete="name" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Property or company</span>
+            <input class="field__input" type="text" name="company" autocomplete="organization">
+          </label>
+        </div>
+        <div class="field-row">
+          <label class="field">
+            <span class="field__label">Email</span>
+            <input class="field__input" type="email" name="email" autocomplete="email" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Phone</span>
+            <input class="field__input" type="tel" name="phone" autocomplete="tel">
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="quote-form__actions">
+        <button class="btn btn--primary btn--large btn--block" type="submit">Say HEY {% include "svg/arrow.svg" %}</button>
+        <p class="quote-form__status" id="quote-status" role="status" aria-live="polite"></p>
+        <p class="muted">By sending, you agree we can contact you about this job. Nothing else, no lists.</p>
+      </div>
+    </form>
+
+    <div class="quote-done card" id="quote-done" hidden>
+      <div class="quote-done__mark">{% include "svg/mark-color.svg" %}</div>
+      <h2 class="h2">You said HEY.</h2>
+      <p class="lede">Your quote is on its way to your inbox. Standard jobs come back with a fixed price; anything unusual and we call first.</p>
+      <div class="summary" id="quote-summary"></div>
+      <p class="muted">Need to change something? Reply to the quote email, or call <a href="{{ site.phoneHref }}">{{ site.phone }}</a>.</p>
+      <a class="link-arrow" href="/">Back to the home page</a>
+    </div>
+
+    <aside class="quote-aside">
+      <div class="card">
+        <p class="eyebrow">What happens next</p>
+        <ol class="mini-steps">
+          {% for step in site.steps %}<li><strong>{{ step.title }}.</strong> {{ step.text }}</li>{% endfor %}
+        </ol>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Rather talk?</p>
+        <p class="card__text"><a class="link-arrow" href="{{ site.phoneHref }}">{{ site.phone }}</a><br><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        <p class="muted">Days, nights, and weekends. If we are on a ladder, we call back within the hour.</p>
+      </div>
+    </aside>
+  </div>
+</section>

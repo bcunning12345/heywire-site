@@ -1,0 +1,70 @@
+---
+layout: layouts/base.njk
+title: Pricing
+description: Straight pricing for low-voltage work. Per-drop pricing, no surprise line items, and a number fixed for 30 days.
+---
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Pricing</p>
+    <h1 class="h1">Straight pricing.<br>Straight runs.</h1>
+    <p class="lede">The number you see is the number you pay. Here is how it is built, so nothing on the invoice is a surprise.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid--3">
+    <div class="card">
+      <p class="eyebrow">1 · Per drop</p>
+      <p class="price">From $[000]<span class="price__unit">per drop</span></p>
+      <p class="card__text">Cat6 or Cat6A, pulled, terminated at both ends, tested, and labeled. The base price covers a standard run in a standard building.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">2 · Adjustments</p>
+      <p class="price">Shown up front</p>
+      <p class="card__text">Plenum jacket, long runs, hard ceilings, after-hours windows, and lift work each add a fixed amount you see before you confirm. Never a percentage you have to guess at.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">3 · Fixed for 30 days</p>
+      <p class="price">No change orders<span class="price__unit">without your OK</span></p>
+      <p class="card__text">If the site is not what the quote assumed, the crew stops and shows you the difference before doing the work.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--white">
+  <div class="container">
+    <h2 class="h2">What is always included</h2>
+    <ul class="proof proof--2col">
+      <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Materials: cable, jacks, faceplates, patch panel ports, and patch cords.</span></li>
+      <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Certification to category spec, with results sent to you.</span></li>
+      <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Labels at both ends and an as-built drawing.</span></li>
+      <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Cleanup, ceiling tiles back, debris removed.</span></li>
+      <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>A [00]-day workmanship warranty on every run.</span></li>
+      <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Nights, weekends, and turnover windows at the rate shown in the quote.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="h2">What changes the price</h2>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Factor</th><th>What it means</th><th>How it shows up</th></tr></thead>
+        <tbody>
+          <tr><td>Jacket rating</td><td>Plenum where the code requires it, riser elsewhere</td><td>Fixed add per drop</td></tr>
+          <tr><td>Run length</td><td>Runs over [000] ft from the closet</td><td>Fixed add per drop</td></tr>
+          <tr><td>Ceiling type</td><td>Drop tile is standard; hard lid or open deck takes longer</td><td>Fixed add per drop</td></tr>
+          <tr><td>Access</td><td>Lift or scaffold work above [00] ft</td><td>Fixed add per day</td></tr>
+          <tr><td>Window</td><td>Nights, weekends, or a turnover deadline</td><td>Fixed add per visit</td></tr>
+          <tr><td>Volume</td><td>More drops in one visit cost less each</td><td>Shown as a lower per-drop price</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted">Fiber, AV, cameras, and guest room work are priced the same way, with their own base and adjustments. The estimator shows every line before you confirm.</p>
+  </div>
+</section>
+
+{% set ctaTitle = "See your number." %}
+{% set ctaText = "Four questions, about a minute, and a fixed price in writing." %}
+{% include "partials/cta.njk" %}

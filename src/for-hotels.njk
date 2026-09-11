@@ -1,0 +1,55 @@
+---
+layout: layouts/base.njk
+title: For hotels
+description: Low-voltage cabling built around guests, turnover schedules, and brand technology standards. Quiet crews, clean runs, rooms back in inventory the same day.
+---
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">For hotels and resorts</p>
+    <h1 class="h1">Your guests won't notice.<br>That's the point.</h1>
+    <p class="lede">Hospitality is where HEYwire started. Every part of how we work, from the quote to the last ceiling tile, is built around a property that never closes.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid--3">
+    <div class="card">
+      <h2 class="h3">Around the guest, not through them</h2>
+      <p class="card__text">Night and turnover windows, quiet crews, corridor protection, and nothing staged where a guest can see it. Rooms go back into inventory the same day.</p>
+    </div>
+    <div class="card">
+      <h2 class="h3">Brand standards, met</h2>
+      <p class="card__text">Wi-Fi, in-room entertainment, locks, and back-of-house networks cabled to the standard your flag publishes, documented so the next audit is a formality.</p>
+    </div>
+    <div class="card">
+      <h2 class="h3">One HEY per property, or per portfolio</h2>
+      <p class="card__text">Six drops at one hotel or a rolling refresh across twelve. Same pricing logic, same crew standard, one point of contact.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--white">
+  <div class="container">
+    <h2 class="h2">The jobs we do most in hotels</h2>
+    <div class="grid grid--4">
+      <a class="card card--link" href="/services/#wifi"><h3 class="card__title">Wi-Fi access point drops</h3><p class="card__text">Guest floors, meeting space, pool decks, parking.</p></a>
+      <a class="card card--link" href="/services/#guest-room"><h3 class="card__title">Guest room refresh</h3><p class="card__text">TVs, in-room networking, thermostats, locks.</p></a>
+      <a class="card card--link" href="/services/#cameras-access"><h3 class="card__title">Cameras and access control</h3><p class="card__text">Entrances, corridors, back of house, loading dock.</p></a>
+      <a class="card card--link" href="/services/#av-signage"><h3 class="card__title">Meeting rooms and signage</h3><p class="card__text">Ballrooms, boardrooms, lobby and wayfinding screens.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Also built for</p>
+    <ul class="chips">
+      {% for v in site.verticals %}<li class="chip">{{ v }}</li>{% endfor %}
+    </ul>
+    <p class="muted">Anywhere people sleep, heal, work, or shop under one roof has the same problem: the building never stops. Neither does the schedule we plan around.</p>
+  </div>
+</section>
+
+{% set ctaTitle = "Got a property list?" %}
+{% set ctaText = "Send it with your HEY. Multi-property programs get one quote, one schedule, and one contact." %}
+{% include "partials/cta.njk" %}

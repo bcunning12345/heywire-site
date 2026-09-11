@@ -1,0 +1,32 @@
+<div class="quote-card">
+  <div class="quote-card__head">
+    <h2 class="quote-card__title">Instant quote</h2>
+    <span class="pill">About 60 seconds</span>
+  </div>
+  <form class="quote-card__form" action="/say-hey/" method="get">
+    <label class="field">
+      <span class="field__label">Property type</span>
+      <select class="field__input" name="property">
+        {% for p in site.propertyTypes %}<option>{{ p }}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="field">
+      <span class="field__label">What needs wiring</span>
+      <select class="field__input" name="service">
+        {% for s in site.services %}<option value="{{ s.slug }}">{{ s.title }}</option>{% endfor %}
+      </select>
+    </label>
+    <div class="field-row">
+      <label class="field">
+        <span class="field__label">How many</span>
+        <input class="field__input" type="number" name="quantity" min="1" placeholder="24" inputmode="numeric">
+      </label>
+      <label class="field">
+        <span class="field__label">Where</span>
+        <input class="field__input" type="text" name="location" placeholder="City, ST" autocomplete="address-level2">
+      </label>
+    </div>
+    <button class="btn btn--primary btn--block" type="submit">Say HEY {% include "svg/arrow.svg" %}</button>
+    <p class="quote-card__note">Straight pricing, in writing, before anyone shows up. No site walk for standard jobs.</p>
+  </form>
+</div>

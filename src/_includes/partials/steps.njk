@@ -1,0 +1,14 @@
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">How it works</p>
+    <div class="steps">
+      {% for step in site.steps %}
+      <div class="card step">
+        <div class="step__icon">{% include "svg/icon-" + step.icon + ".svg" %}</div>
+        <h3 class="step__title">{{ step.title }}</h3>
+        <p class="step__text">{{ step.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

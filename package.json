@@ -1,0 +1,19 @@
+{
+  "name": "heywire-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "HEYwire marketing website (Eleventy static site)",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "eleventy --serve --port=8080",
+    "build": "eleventy",
+    "start": "node server.js",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}

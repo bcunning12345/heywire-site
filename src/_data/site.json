@@ -1,0 +1,138 @@
+{
+  "name": "HEYwire",
+  "tagline": "Just say HEY.",
+  "description": "Low-voltage cabling for hotels, resorts, and the buildings next door. Real-time quotes, straight pricing, and a crew on the calendar.",
+  "url": "https://heywire.services",
+  "parent": "ETHIC Global LLC",
+  "region": "[your region]",
+  "phone": "[Phone]",
+  "phoneHref": "tel:+10000000000",
+  "email": "[email address]",
+  "address": "[Company address]",
+  "license": "[License number]",
+  "quoteEndpoint": null,
+  "nav": [
+    { "label": "Services", "url": "/services/" },
+    { "label": "How it works", "url": "/how-it-works/" },
+    { "label": "For hotels", "url": "/for-hotels/" },
+    { "label": "Pricing", "url": "/pricing/" }
+  ],
+  "footerNav": [
+    { "label": "Services", "url": "/services/" },
+    { "label": "How it works", "url": "/how-it-works/" },
+    { "label": "For hotels", "url": "/for-hotels/" },
+    { "label": "Pricing", "url": "/pricing/" },
+    { "label": "Say HEY", "url": "/say-hey/" }
+  ],
+  "steps": [
+    {
+      "icon": "quote",
+      "title": "Quote",
+      "text": "Tell us the property and the job. The price comes back while you are still on the page."
+    },
+    {
+      "icon": "calendar",
+      "title": "Schedule",
+      "text": "Pick a window that works around your guests. We hold it the moment you confirm."
+    },
+    {
+      "icon": "truck",
+      "title": "Dispatch",
+      "text": "A crew is on the way with the work order, the materials, and your price already agreed."
+    }
+  ],
+  "proof": [
+    "We work around guests, never through them. Quiet crews, clean runs, nothing left in a hallway.",
+    "Every run certified, labeled, and documented. You get the test results, not just an invoice.",
+    "One HEY covers six drops or six hundred rooms. Same pricing logic, same crew standard."
+  ],
+  "propertyTypes": [
+    "Hotel or resort",
+    "Multifamily",
+    "Senior living",
+    "Clinic or medical office",
+    "Office",
+    "Retail or restaurant",
+    "Other"
+  ],
+  "services": [
+    {
+      "slug": "structured-cabling",
+      "title": "Structured cabling",
+      "short": "Cat6 and Cat6A drops, patch panels, and the closets that tie them together.",
+      "text": "New drops, re-pulls, and full closet builds. Every run is tested to category spec, labeled at both ends, and documented in an as-built you can hand to the next contractor."
+    },
+    {
+      "slug": "fiber",
+      "title": "Fiber backbone",
+      "short": "Single-mode and multimode between buildings, floors, and closets.",
+      "text": "Riser and campus fiber, fusion-spliced and OTDR-tested. We size the count for the next ten years, not the next ticket."
+    },
+    {
+      "slug": "wifi",
+      "title": "Wi-Fi access point drops",
+      "short": "Cabling and mounting for guest and back-of-house wireless.",
+      "text": "Drops to every AP location on your heat map, mounted and patched, ready for your network team or ours to bring online."
+    },
+    {
+      "slug": "cameras-access",
+      "title": "Cameras and access control",
+      "short": "Cabling for cameras, readers, door hardware, and intercoms.",
+      "text": "Clean runs to every camera and door, with the power and data your security integrator specifies. We coordinate directly with them so nothing gets pulled twice."
+    },
+    {
+      "slug": "av-signage",
+      "title": "AV and digital signage",
+      "short": "Meeting rooms, ballrooms, lobbies, and menu boards.",
+      "text": "HDMI, control, audio, and network cabling for the rooms where things get presented, and the screens that tell guests where to go."
+    },
+    {
+      "slug": "guest-room",
+      "title": "Guest room technology",
+      "short": "TVs, in-room networking, thermostats, and smart locks.",
+      "text": "Room-by-room refreshes on a turnover schedule, with rooms back in inventory the same day. Built for brand tech standards and property management deadlines."
+    },
+    {
+      "slug": "closet-cleanup",
+      "title": "Closet cleanup and certification",
+      "short": "Bring an inherited MDF or IDF back to something you can trust.",
+      "text": "Trace, label, re-dress, and certify what is already there. You get a map of your own building and a test report for every run."
+    },
+    {
+      "slug": "mac",
+      "title": "Moves, adds, and changes",
+      "short": "Small jobs, fast. A few drops, a relocated desk, a new door.",
+      "text": "The jobs nobody wants to bid. Say HEY, get a price, and pick a window. Same crew standard as the big ones."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How can you quote without a site walk?",
+      "a": "Standard jobs in standard buildings follow patterns we have priced hundreds of times. You tell us the property type, the service, the count, and the location, and the estimator does the rest. Anything unusual gets flagged for a walk before we commit to a number."
+    },
+    {
+      "q": "Is the price really fixed?",
+      "a": "Yes, for 30 days from the quote. If we find something on site that changes the scope, we stop and show you the change before doing the work. No surprise line items on the invoice."
+    },
+    {
+      "q": "Can you work nights and turnover days?",
+      "a": "That is most of what we do in hospitality. Pick the window when you schedule, and the crew plans around it."
+    },
+    {
+      "q": "What do I get when the job is done?",
+      "a": "Certification results for every run, labels at both ends, and an as-built document showing where everything goes. Plus a clean site."
+    },
+    {
+      "q": "Do you handle the network gear too?",
+      "a": "We install and cable it. If you need configuration, we work alongside your IT team or integrator, or we can bring one in."
+    }
+  ],
+  "verticals": [
+    "Hotels and resorts",
+    "Multifamily",
+    "Senior living",
+    "Clinics and medical offices",
+    "Offices",
+    "Retail and restaurants"
+  ]
+}

@@ -1,0 +1,16 @@
+<section class="section section--white">
+  <div class="container">
+    <div class="proof__head">
+      <h2 class="h2">Built for hospitality.</h2>
+      <p class="proof__sub">Also multifamily, senior living, and clinics.</p>
+    </div>
+    <ul class="proof">
+      {% for item in site.proof %}
+      <li class="proof__item">
+        <span class="proof__check">{% include "svg/icon-check.svg" %}</span>
+        <span>{{ item }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

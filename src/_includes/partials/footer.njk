@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a href="/" aria-label="{{ site.name }} home">{% include "svg/mark-white.svg" %}</a>
+      <div class="site-footer__parent">An {{ site.parent | replace(" LLC", "") }} company</div>
+    </div>
+    <ul class="site-footer__nav">
+      {% for item in site.footerNav %}
+      <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+      {% endfor %}
+    </ul>
+    <div class="site-footer__meta">
+      <div>{{ site.address }}</div>
+      <div><a href="{{ site.phoneHref }}">{{ site.phone }}</a> · <a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+      <div>License {{ site.license }} · © {% year %} {{ site.parent }}</div>
+    </div>
+  </div>
+</footer>
