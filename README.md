@@ -47,7 +47,7 @@ Bracketed placeholders in `src/_data/site.json` and the pricing page:
   "timing": "As soon as possible",
   "notes": "",
   "name": "", "company": "", "email": "", "phone": "",
-  "submittedAt": "ISO-8601", "source": "heywire.services"
+  "submittedAt": "ISO-8601", "source": "getheywire.com"
 }
 ```
 

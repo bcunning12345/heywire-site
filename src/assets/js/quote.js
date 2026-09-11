@@ -37,7 +37,7 @@
 
     const data = Object.fromEntries(new FormData(form).entries());
     data.submittedAt = new Date().toISOString();
-    data.source = "heywire.services";
+    data.source = "getheywire.com";
 
     submit.disabled = true;
     setStatus("Pricing your job…", "busy");
@@ -72,7 +72,7 @@
       done.hidden = false;
       done.scrollIntoView({ behavior: "smooth", block: "start" });
     } catch (err) {
-      setStatus("Something went wrong on our end. Call us at " + (form.dataset.phone || "the number below") + " and we will price it by hand.", "error");
+      setStatus("Something went wrong on our end. Email " + (form.dataset.contact || "us") + " and we will price it by hand.", "error");
       submit.disabled = false;
     }
   });

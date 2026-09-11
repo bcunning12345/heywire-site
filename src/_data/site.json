@@ -2,27 +2,54 @@
   "name": "HEYwire",
   "tagline": "Just say HEY.",
   "description": "Low-voltage cabling for hotels, resorts, and the buildings next door. Real-time quotes, straight pricing, and a crew on the calendar.",
-  "url": "https://heywire.services",
+  "url": "https://getheywire.com",
   "parent": "ETHIC Global LLC",
-  "region": "[your region]",
-  "phone": "[Phone]",
-  "phoneHref": "tel:+10000000000",
-  "email": "[email address]",
-  "address": "[Company address]",
-  "license": "[License number]",
+  "region": "",
+  "phone": "",
+  "phoneHref": "",
+  "email": "quote@getheywire.com",
+  "address": "",
+  "license": "",
   "quoteEndpoint": null,
   "nav": [
-    { "label": "Services", "url": "/services/" },
-    { "label": "How it works", "url": "/how-it-works/" },
-    { "label": "For hotels", "url": "/for-hotels/" },
-    { "label": "Pricing", "url": "/pricing/" }
+    {
+      "label": "Services",
+      "url": "/services/"
+    },
+    {
+      "label": "How it works",
+      "url": "/how-it-works/"
+    },
+    {
+      "label": "For hotels",
+      "url": "/for-hotels/"
+    },
+    {
+      "label": "Pricing",
+      "url": "/pricing/"
+    }
   ],
   "footerNav": [
-    { "label": "Services", "url": "/services/" },
-    { "label": "How it works", "url": "/how-it-works/" },
-    { "label": "For hotels", "url": "/for-hotels/" },
-    { "label": "Pricing", "url": "/pricing/" },
-    { "label": "Say HEY", "url": "/say-hey/" }
+    {
+      "label": "Services",
+      "url": "/services/"
+    },
+    {
+      "label": "How it works",
+      "url": "/how-it-works/"
+    },
+    {
+      "label": "For hotels",
+      "url": "/for-hotels/"
+    },
+    {
+      "label": "Pricing",
+      "url": "/pricing/"
+    },
+    {
+      "label": "Say HEY",
+      "url": "/say-hey/"
+    }
   ],
   "steps": [
     {

@@ -11,7 +11,7 @@ The site is static. Railway builds it from GitHub and serves `dist/` with `serve
 
 ## When it is time to go live
 
-1. **Settings → Networking → Custom Domain** → add `heywire.services` (and `www`). Railway shows the DNS records to create.
+1. **Settings → Networking → Custom Domain** → add `getheywire.com` (and `www`). Railway shows the DNS records to create.
 2. Update `url` in `src/_data/site.json` to the final domain and push.
 3. Point the quote form at the estimator by setting `quoteEndpoint` in `src/_data/site.json` (see README).
 

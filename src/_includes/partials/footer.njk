@@ -10,9 +10,9 @@
       {% endfor %}
     </ul>
     <div class="site-footer__meta">
-      <div>{{ site.address }}</div>
-      <div><a href="{{ site.phoneHref }}">{{ site.phone }}</a> · <a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
-      <div>License {{ site.license }} · © {% year %} {{ site.parent }}</div>
+      {% if site.address %}<div>{{ site.address }}</div>{% endif %}
+      <div>{% if site.phone %}<a href="{{ site.phoneHref }}">{{ site.phone }}</a> · {% endif %}<a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+      <div>{% if site.license %}License {{ site.license }} · {% endif %}© {% year %} {{ site.parent }}</div>
     </div>
   </div>
 </footer>

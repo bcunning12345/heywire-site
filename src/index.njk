@@ -12,7 +12,7 @@ description: Low-voltage cabling for hotels and resorts. Real-time quotes, strai
         <a class="btn btn--primary btn--large" href="/say-hey/">Get an instant quote {% include "svg/arrow.svg" %}</a>
         <a class="link-arrow" href="/how-it-works/">See how it works</a>
       </div>
-      <p class="hero__region"><span class="stripe stripe--inline" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Serving properties across {{ site.region }}</p>
+      {% if site.region %}<p class="hero__region"><span class="stripe stripe--inline" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Serving properties across {{ site.region }}</p>{% endif %}
     </div>
     {% include "partials/quote-card.njk" %}
   </div>
