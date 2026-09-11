@@ -61,3 +61,4 @@ The estimator will need CORS enabled for the site's origin.
 - The four pair colors appear only in the logo's stripped end and the small inline stripe on the home page. No stripe across the top of pages.
 - "Say HEY" is the label on every primary button.
 - Type is Archivo only: Black for headlines, Regular for body, Medium for eyebrows and labels.
+- The ™ after "wire" is part of the logo artwork. Never remove it, and never type a separate ™ next to the logo.
