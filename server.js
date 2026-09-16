@@ -7,6 +7,10 @@ import { extname, join, normalize, resolve } from "node:path";
 const ROOT = resolve("dist");
 const PORT = Number(process.env.PORT) || 3000;
 
+// HOLDING=1 serves the coming-soon page for every page request until launch.
+// Static assets keep serving so the holding page can load fonts and icons.
+const HOLDING = /^(1|true|yes)$/i.test(process.env.HOLDING || "");
+
 const TYPES = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -47,6 +51,15 @@ http
     } catch {
       res.writeHead(400).end("Bad request");
       return;
+    }
+
+    // Holding mode: anything that is not a static asset gets the coming-soon page.
+    if (HOLDING && !urlPath.startsWith("/assets/") && urlPath !== "/favicon.ico") {
+      const holding = join(ROOT, "soon", "index.html");
+      if (existsSync(holding)) {
+        send(res, 200, holding);
+        return;
+      }
     }
 
     // Resolve inside dist only.

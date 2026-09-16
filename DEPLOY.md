@@ -15,6 +15,16 @@ The site is static. Railway builds it from GitHub and serves `dist/` with `serve
 2. Update `url` in `src/_data/site.json` to the final domain and push.
 3. Point the quote form at the estimator by setting `quoteEndpoint` in `src/_data/site.json` (see README).
 
+## Holding page before launch
+
+The coming-soon page lives at `/soon/` in every build. To put it up on the real domain before the full site launches:
+
+1. In Railway, open the service → **Variables** → add `HOLDING` = `1`. The service restarts and every page request serves the holding page; assets keep working.
+2. Point DNS at Railway (Networking → Custom Domain).
+3. On launch day, delete the `HOLDING` variable. The full site is live at once, no redeploy needed.
+
+For any other host, `npm run build && node scripts/export-holding.mjs` writes `holding/heywire-holding.html`, a single file with the fonts and icon inlined. Upload it as `index.html` anywhere.
+
 ## Day to day
 
 - Edit copy in `src/_data/site.json` or the page files, commit, push. Railway rebuilds in about a minute.
