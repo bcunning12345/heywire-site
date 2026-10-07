@@ -11,6 +11,16 @@ const PORT = Number(process.env.PORT) || 3000;
 // Static assets keep serving so the holding page can load fonts and icons.
 const HOLDING = /^(1|true|yes)$/i.test(process.env.HOLDING || "");
 
+// Preview bypass while holding: visiting /?preview=<PREVIEW_KEY> sets a cookie so that
+// browser sees the full site; /?preview=off clears it. Everyone else keeps the holding page.
+const PREVIEW_KEY = process.env.PREVIEW_KEY || "heywire";
+const COOKIE = "hw_preview";
+
+function hasPreviewCookie(req) {
+  const raw = req.headers.cookie || "";
+  return raw.split(";").some((c) => c.trim() === `${COOKIE}=${PREVIEW_KEY}`);
+}
+
 const TYPES = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -45,16 +55,29 @@ function send(res, status, filePath) {
 
 http
   .createServer((req, res) => {
-    let urlPath;
+    let urlPath, params;
     try {
-      urlPath = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
+      const u = new URL(req.url, "http://localhost");
+      urlPath = decodeURIComponent(u.pathname);
+      params = u.searchParams;
     } catch {
       res.writeHead(400).end("Bad request");
       return;
     }
 
-    // Holding mode: anything that is not a static asset gets the coming-soon page.
-    if (HOLDING && !urlPath.startsWith("/assets/") && urlPath !== "/favicon.ico") {
+    // Preview cookie set/clear, then redirect to the same path without the query.
+    const preview = params.get("preview");
+    if (preview !== null) {
+      const cookie = preview === PREVIEW_KEY
+        ? `${COOKIE}=${PREVIEW_KEY}; Path=/; Max-Age=${60 * 60 * 24 * 30}; HttpOnly; SameSite=Lax; Secure`
+        : `${COOKIE}=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax; Secure`;
+      res.writeHead(302, { "Set-Cookie": cookie, Location: urlPath, "Cache-Control": "no-store" }).end();
+      return;
+    }
+
+    // Holding mode: anything that is not a static asset gets the coming-soon page,
+    // unless this browser carries the preview cookie.
+    if (HOLDING && !hasPreviewCookie(req) && !urlPath.startsWith("/assets/") && urlPath !== "/favicon.ico") {
       const holding = join(ROOT, "soon", "index.html");
       if (existsSync(holding)) {
         send(res, 200, holding);

@@ -23,6 +23,8 @@ The coming-soon page lives at `/soon/` in every build. To put it up on the real 
 2. Point DNS at Railway (Networking → Custom Domain).
 3. On launch day, delete the `HOLDING` variable. The full site is live at once, no redeploy needed.
 
+**Reviewing the full site while the holding page is up.** Open `https://www.getheywire.com/?preview=heywire` once. That sets a cookie in that browser for 30 days, and every page then shows the full site for you only; everyone else still sees the holding page. To go back to seeing the holding page, open `/?preview=off`. The key is `PREVIEW_KEY` in Railway's variables if you want to change it from the default.
+
 For any other host, `npm run build && node scripts/export-holding.mjs` writes `holding/heywire-holding.html`, a single file with the fonts and icon inlined. Upload it as `index.html` anywhere.
 
 ## Day to day
