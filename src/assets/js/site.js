@@ -22,3 +22,29 @@
   const mq = window.matchMedia("(min-width: 900px)");
   mq.addEventListener("change", (e) => { if (e.matches) setOpen(false); });
 })();
+
+// Home page headline: cycles the thing that needs wiring.
+(function () {
+  const el = document.querySelector(".rotator[data-rotate]");
+  if (!el) return;
+  const words = el.dataset.rotate.split("|").map((w) => w.trim()).filter(Boolean);
+  if (words.length < 2) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  let i = words.indexOf(el.textContent.trim());
+  const HOLD = 2200, OUT = 240;
+
+  const tick = () => {
+    if (document.hidden) return;
+    el.classList.add("is-out");
+    setTimeout(() => {
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+      el.classList.remove("is-out");
+      el.classList.add("is-in");
+      void el.offsetWidth; // restart the transition from the "in" start state
+      el.classList.remove("is-in");
+    }, OUT);
+  };
+  setInterval(tick, HOLD);
+})();

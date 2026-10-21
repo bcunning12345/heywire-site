@@ -1,7 +1,7 @@
 {
   "name": "HEYwire",
   "tagline": "Just say HEY.",
-  "description": "Low-voltage cabling for hotels, resorts, and the buildings next door. Real-time quotes, straight pricing, and a crew on the calendar.",
+  "description": "Low-voltage cabling for hotels and resorts, healthcare, senior living, restaurants, retail, and showrooms. Same-day quotes, straight pricing, and a crew on the calendar.",
   "url": "https://getheywire.com",
   "parent": "ETHIC Global LLC",
   "region": "",
@@ -55,12 +55,12 @@
     {
       "icon": "quote",
       "title": "Quote",
-      "text": "Tell us the property and the job. The price comes back while you are still on the page."
+      "text": "Tell us the property and the job. A fixed price comes back in writing, usually the same day. Complex projects, the next."
     },
     {
       "icon": "calendar",
       "title": "Schedule",
-      "text": "Pick a window that works around your guests. We hold it the moment you confirm."
+      "text": "Pick a window that works around your guests, patients, or customers. We hold it the moment you confirm."
     },
     {
       "icon": "truck",
@@ -75,11 +75,11 @@
   ],
   "propertyTypes": [
     "Hotel or resort",
-    "Multifamily",
+    "Healthcare",
     "Senior living",
-    "Clinic or medical office",
-    "Office",
-    "Retail or restaurant",
+    "Restaurant",
+    "Retail",
+    "Showroom",
     "Other"
   ],
   "services": [
@@ -87,7 +87,7 @@
       "slug": "structured-cabling",
       "title": "Structured cabling",
       "short": "Cat6 and Cat6A drops, patch panels, and the closets that tie them together.",
-      "text": "New drops, re-pulls, and full closet builds. Every run is tested to category spec, labeled at both ends, and documented in an as-built you can hand to the next contractor."
+      "text": "New drops, re-pulls, and full closet builds. Every run is tested to category spec, labeled at both ends, and documented in a test report you can hand to the next contractor. Add as-built drawings if you want the map, too."
     },
     {
       "slug": "fiber",
@@ -123,7 +123,7 @@
       "slug": "closet-cleanup",
       "title": "Closet cleanup and certification",
       "short": "Bring an inherited MDF or IDF back to something you can trust.",
-      "text": "Trace, label, re-dress, and certify what is already there. You get a map of your own building and a test report for every run."
+      "text": "Trace, label, re-dress, and certify what is already there. You get a closet you can read and a test report for every run. As-built drawings are an optional add-on."
     },
     {
       "slug": "mac",
@@ -134,8 +134,12 @@
   ],
   "faq": [
     {
+      "q": "How fast does the quote come back?",
+      "a": "Usually the same business day. Complex projects, such as fiber between buildings or a full property refresh, take until the next day because a person checks every line before it goes out. Either way, it arrives in writing with a fixed price."
+    },
+    {
       "q": "How can you quote without a site walk?",
-      "a": "Standard jobs in standard buildings follow patterns we have priced hundreds of times. You tell us the property type, the service, the count, and the location, and the estimator does the rest. Anything unusual gets flagged for a walk before we commit to a number."
+      "a": "Standard jobs in standard buildings follow patterns we have priced hundreds of times. You tell us the property type, the service, the count, and the location, and we price it from there. Site plans or drawings help, so attach them if you have them. Anything unusual gets flagged for a walk before we commit to a number."
     },
     {
       "q": "Is the price really fixed?",
@@ -143,11 +147,11 @@
     },
     {
       "q": "Can you work nights and turnover days?",
-      "a": "That is most of what we do in hospitality. Pick the window when you schedule, and the crew plans around it."
+      "a": "That is most of what we do in hospitality, and it carries over to clinics, dining rooms, and sales floors. Pick the window when you schedule, and the crew plans around it."
     },
     {
       "q": "What do I get when the job is done?",
-      "a": "Certification results for every run, labels at both ends, and an as-built document showing where everything goes. Plus a clean site."
+      "a": "Certification results for every run, labels at both ends, and a clean site. As-built drawings showing where everything goes are an optional add-on, priced on the quote."
     },
     {
       "q": "Do you handle the network gear too?",
@@ -156,10 +160,10 @@
   ],
   "verticals": [
     "Hotels and resorts",
-    "Multifamily",
+    "Healthcare",
     "Senior living",
-    "Clinics and medical offices",
-    "Offices",
-    "Retail and restaurants"
+    "Restaurants",
+    "Retail",
+    "Showrooms"
   ]
 }

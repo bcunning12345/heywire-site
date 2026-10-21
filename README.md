@@ -32,26 +32,28 @@ Bracketed placeholders in `src/_data/site.json` and the pricing page:
 
 - `region`, `phone`, `phoneHref`, `email`, `address`, `license`
 - Pricing page: per-drop starting price, run-length threshold, lift height, warranty length
-- Any claim you want to soften or confirm: quote turnaround, 30-day price hold, callback within the hour, workmanship warranty
+- Any claim you want to soften or confirm: same-day quote turnaround (next day for complex projects), 30-day price hold, callback within the hour, workmanship warranty
 
 ## Wiring the quote form to the estimator
 
-`quote.js` posts the form as JSON to `site.quoteEndpoint` when it is set. Point it at an API route on the ethic-estimator app (for example `https://<estimator-host>/api/quotes`) that accepts:
+`quote.js` posts the form as `multipart/form-data` to `site.quoteEndpoint` when it is set. Point it at an API route on the ethic-estimator app (for example `https://<estimator-host>/api/quotes`) that accepts these fields:
 
-```json
-{
-  "property": "Hotel or resort",
-  "service": "wifi",
-  "quantity": "24",
-  "location": "City, ST",
-  "timing": "As soon as possible",
-  "notes": "",
-  "name": "", "company": "", "email": "", "phone": "",
-  "submittedAt": "ISO-8601", "source": "getheywire.com"
-}
-```
+| Field | Value |
+|---|---|
+| `property` | One of `site.propertyTypes`, e.g. `Hotel or resort` |
+| `service` | Service slug, e.g. `wifi` |
+| `quantity` | Number as a string |
+| `location` | `City, ST` |
+| `timing` | One of the four timing options |
+| `notes` | Free text |
+| `asbuilt` | `yes` when the as-built drawings add-on is ticked, otherwise absent |
+| `files` | Zero or more attached site plans / drawings (repeated field; up to 10 files, 25 MB total, enforced client-side) |
+| `name`, `company`, `email`, `phone` | Contact |
+| `submittedAt`, `source` | ISO-8601 timestamp and `getheywire.com` |
 
-and responds with `{ "ok": true }` (optionally `quoteId` and `message`). Until then the form runs in demo mode: it validates, waits a moment, and shows the confirmation panel without sending anything.
+It should respond with JSON `{ "ok": true }` (optionally `quoteId` and `message`). Until then the form runs in demo mode: it validates, waits a moment, and shows the confirmation panel without sending anything.
+
+Quotes are not automated on the customer side: the site promises a written price usually the same day, next day for complex projects. Keep that promise in mind if the estimator ever replies with a number directly.
 
 The estimator will need CORS enabled for the site's origin.
 

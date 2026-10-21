@@ -1,13 +1,13 @@
 ---
 layout: layouts/base.njk
-title: HEYwire instant quote
-description: Get an instant, fixed-price quote for low-voltage cabling. Four questions, about a minute.
+title: Say HEY for a quote
+description: Get a fixed-price quote for low-voltage cabling, usually the same day. Four questions, a few minutes, site plans welcome.
 ---
 <section class="page-head page-head--tight">
   <div class="container">
     <p class="eyebrow">Say HEY</p>
     <h1 class="h1">Tell us what you need.</h1>
-    <p class="lede">Four questions about the job, two about you. A fixed price comes back in writing.</p>
+    <p class="lede">Four questions about the job, two about you. A fixed price comes back in writing, usually the same day.</p>
   </div>
 </section>
 
@@ -51,6 +51,20 @@ description: Get an instant, fixed-price quote for low-voltage cabling. Four que
           <span class="field__label">Anything else <span class="field__opt">optional</span></span>
           <textarea class="field__input field__input--area" name="notes" rows="3" placeholder="Floors, ceiling type, deadlines, a property list, or what the last contractor left behind."></textarea>
         </label>
+        <div class="field">
+          <span class="field__label" id="files-label">Site plans or drawings <span class="field__opt">optional</span></span>
+          <label class="dropzone" for="quote-files">
+            <input class="dropzone__input" type="file" id="quote-files" name="files" multiple accept=".pdf,.png,.jpg,.jpeg,.heic,.webp,.dwg,.dxf,.vsdx,.zip" aria-describedby="files-help">
+            <span class="dropzone__icon" aria-hidden="true">{% include "svg/icon-upload.svg" %}</span>
+            <span class="dropzone__text"><strong>Add files</strong> or drop them here</span>
+            <span class="dropzone__help" id="files-help">Floor plans, marked-up PDFs, photos of the closet, or a CAD file. Up to 10 files, 25 MB total.</span>
+          </label>
+          <ul class="file-list" id="file-list" aria-live="polite"></ul>
+        </div>
+        <label class="field field--check">
+          <input class="field__check" type="checkbox" name="asbuilt" value="yes">
+          <span><strong>Add as-built drawings</strong> <span class="field__opt">optional add-on</span><br><span class="field__hint">Marked-up plans showing every run, jack, and port. Priced per floor on the quote.</span></span>
+        </label>
       </fieldset>
 
       <fieldset class="quote-form__group">
@@ -87,7 +101,7 @@ description: Get an instant, fixed-price quote for low-voltage cabling. Four que
     <div class="quote-done card" id="quote-done" hidden>
       <div class="quote-done__mark">{% include "svg/mark-color.svg" %}</div>
       <h2 class="h2">You said HEY.</h2>
-      <p class="lede">Your quote is on its way to your inbox. Standard jobs come back with a fixed price; anything unusual and we call first.</p>
+      <p class="lede">We have the job. A fixed price lands in your inbox, usually the same day. Complex projects take until the next day, and anything unusual gets a call first.</p>
       <div class="summary" id="quote-summary"></div>
       <p class="muted">Need to change something? Reply to the quote email{% if site.phone %}, or call <a href="{{ site.phoneHref }}">{{ site.phone }}</a>{% endif %}.</p>
       <a class="link-arrow" href="/">Back to the home page</a>

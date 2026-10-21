@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: How HEYwire works
-description: Quote in about a minute, schedule a window that works around your guests, and a crew is dispatched with the price already agreed.
+description: Send the job in a few minutes, get a fixed price back the same day, schedule a window that works around your guests, and a crew is dispatched with the price already agreed.
 ---
 <section class="page-head">
   <div class="container">
@@ -21,11 +21,11 @@ description: Quote in about a minute, schedule a window that works around your g
           <h2 class="h3">{{ step.title }}</h2>
           <p>{{ step.text }}</p>
           {% if loop.index == 1 %}
-          <p class="muted">You answer four questions: property type, what needs wiring, how many, and where. Standard jobs get a fixed price on the spot. Anything unusual gets flagged and we call you before we commit to a number.</p>
+          <p class="muted">You answer four questions: property type, what needs wiring, how many, and where. Attach site plans if you have them. Standard jobs get a fixed price back the same day; complex projects take until the next day. Anything unusual gets flagged and we call you before we commit to a number.</p>
           {% elif loop.index == 2 %}
           <p class="muted">Days, nights, turnover days, or between check-out and check-in. You choose. The crew, the materials, and the work order are locked to that window.</p>
           {% else %}
-          <p class="muted">The crew arrives knowing the scope, the route, and the price. When they leave you have test results, labels, an as-built, and a clean site.</p>
+          <p class="muted">The crew arrives knowing the scope, the route, and the price. When they leave you have test results, labels, and a clean site. And as-built drawings, if you added them.</p>
           {% endif %}
         </div>
       </li>

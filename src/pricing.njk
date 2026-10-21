@@ -37,10 +37,14 @@ description: Straight pricing for low-voltage work. Per-drop pricing, no surpris
     <ul class="proof proof--2col">
       <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Materials: cable, jacks, faceplates, patch panel ports, and patch cords.</span></li>
       <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Certification to category spec, with results sent to you.</span></li>
-      <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Labels at both ends and an as-built drawing.</span></li>
+      <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Labels at both ends that match the test report.</span></li>
       <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Cleanup, ceiling tiles back, debris removed.</span></li>
       <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>A 365-day workmanship warranty on every run.<a class="fn-ref" href="#warranty-note" aria-label="Warranty terms">*</a></span></li>
       <li class="proof__item"><span class="proof__check">{% include "svg/icon-check.svg" %}</span><span>Nights, weekends, and turnover windows at the rate shown in the quote.</span></li>
+    </ul>
+    <h3 class="h3 addons__title">Optional add-ons</h3>
+    <ul class="proof proof--2col">
+      <li class="proof__item"><span class="proof__check proof__check--plus">+</span><span><strong>As-built drawings.</strong> Marked-up floor plans showing every run, jack, and patch panel port. Priced per floor and shown on the quote before you confirm.</span></li>
     </ul>
     <p class="footnote" id="warranty-note">* Warranty covers our workmanship for 365 days from completion. Excludes damage done by others, such as cables severed or damaged after we leave, and weather, water, corrosion, or similar environmental damage.</p>
   </div>
@@ -59,13 +63,14 @@ description: Straight pricing for low-voltage work. Per-drop pricing, no surpris
           <tr><td>Access</td><td>High ceilings or hard-to-reach spaces that call for a lift or scaffold</td><td>Fixed add per day</td></tr>
           <tr><td>Window</td><td>Nights, weekends, or a turnover deadline</td><td>Fixed add per visit</td></tr>
           <tr><td>Volume</td><td>More drops in one visit cost less each</td><td>Shown as a lower per-drop price</td></tr>
+          <tr><td>As-built drawings</td><td>Optional. Marked-up plans of every run, jack, and port</td><td>Add-on, priced per floor</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="muted">Fiber, AV, cameras, and guest room work are priced the same way, with their own base and adjustments. The estimator shows every line before you confirm.</p>
+    <p class="muted">Fiber, AV, cameras, and guest room work are priced the same way, with their own base and adjustments. Every line is on the quote before you confirm.</p>
   </div>
 </section>
 
 {% set ctaTitle = "See your number." %}
-{% set ctaText = "Four questions, about a minute, and a fixed price in writing." %}
+{% set ctaText = "Four questions, a few minutes, and a fixed price in writing, usually the same day." %}
 {% include "partials/cta.njk" %}
