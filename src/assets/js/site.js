@@ -61,3 +61,42 @@
   };
   setInterval(tick, HOLD);
 })();
+
+// Service areas: ZIP → { status: "live" | "soon" | "waitlist", area }.
+// Data comes from site.json (serviceAreas) via the #service-areas JSON block.
+(function () {
+  let areas = [];
+  try { areas = JSON.parse(document.getElementById("service-areas")?.textContent || "[]"); } catch {}
+  const inRange = (prefix, [lo, hi]) => prefix >= lo && prefix <= hi;
+  window.heywireArea = function (zip) {
+    const raw = String(zip || "").trim();
+    if (!raw) return null;
+    const m = raw.match(/^(\d{5})(?:-\d{4})?$/);
+    if (!m) return { status: "outside", area: null }; // not a US ZIP: international or a typo
+    const prefix = m[1].slice(0, 3);
+    const area = areas.find((a) => (a.zipRanges || []).some((r) => inRange(prefix, r)));
+    return area ? { status: area.status, area } : { status: "waitlist", area: null };
+  };
+  window.heywireAreaText = function (result) {
+    if (!result) return "";
+    if (result.status === "live") return "Live in " + result.area.name + ". Same-day quote.";
+    if (result.status === "soon") return "Crews are onboarding in " + result.area.name + " now. Say HEY and you are first in line.";
+    if (result.status === "outside") return "US ZIP codes only. HEYwire does not quote properties outside the United States.";
+    return "Not there yet. Say HEY and we will put you first in line for your area.";
+  };
+
+  // Inline hint under any ZIP field.
+  document.querySelectorAll("input[name=zip]").forEach((input) => {
+    const hint = input.closest(".field")?.querySelector(".field__area");
+    if (!hint) return;
+    const update = () => {
+      const r = window.heywireArea(input.value);
+      hint.textContent = window.heywireAreaText(r);
+      hint.dataset.status = r ? r.status : "";
+      input.setCustomValidity(r && r.status === "outside" ? "HEYwire quotes US properties only. Enter a 5-digit US ZIP code." : "");
+    };
+    input.addEventListener("input", update);
+    input.addEventListener("heywire:prefill", update);
+    update();
+  });
+})();

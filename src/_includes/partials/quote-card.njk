@@ -22,8 +22,9 @@
         <input class="field__input" type="number" name="quantity" min="1" placeholder="24" inputmode="numeric">
       </label>
       <label class="field">
-        <span class="field__label">Where</span>
-        <input class="field__input" type="text" name="location" placeholder="City, ST" autocomplete="address-level2">
+        <span class="field__label">ZIP code <span class="field__opt">US only</span></span>
+        <input class="field__input" type="text" name="zip" placeholder="85004" inputmode="numeric" autocomplete="postal-code" pattern="\d{5}(-\d{4})?" maxlength="10">
+        <span class="field__area" aria-live="polite"></span>
       </label>
     </div>
     <button class="btn btn--primary btn--block" type="submit">Say HEY {% include "svg/arrow.svg" %}</button>

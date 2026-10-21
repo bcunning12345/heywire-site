@@ -146,6 +146,10 @@
       "a": "Yes, for 30 days from the quote. If we find something on site that changes the scope, we stop and show you the change before doing the work. No surprise line items on the invoice."
     },
     {
+      "q": "Where do you work?",
+      "a": "Live today across Southern California south of the Bay Area and Greater Phoenix, with more US metros onboarding. Outside those, say HEY anyway. Your ZIP goes on the list for your area, you hear from us the moment crews are live there, and for a big enough job we will find a way sooner. United States only; we do not take international work."
+    },
+    {
       "q": "Can you work nights and turnover days?",
       "a": "That is most of what we do in hospitality, and it carries over to clinics, dining rooms, and sales floors. Pick the window when you schedule, and the crew plans around it."
     },
@@ -170,5 +174,31 @@
     "Retail",
     "Showrooms"
   ],
-  "turnstileSiteKey": "0x4AAAAAAFeleWdTzlGyvLf3"
+  "turnstileSiteKey": "0x4AAAAAAFeleWdTzlGyvLf3",
+  "serviceAreas": [
+    {
+      "slug": "socal",
+      "name": "Southern California",
+      "note": "Los Angeles, Orange County, San Diego, the Inland Empire, Ventura, Santa Barbara, and the Central Coast and Valley south of the Bay Area",
+      "status": "live",
+      "zipRanges": [
+        [
+          "900",
+          "939"
+        ]
+      ]
+    },
+    {
+      "slug": "phoenix",
+      "name": "Greater Phoenix",
+      "note": "Phoenix, Scottsdale, Tempe, Mesa, Chandler, Glendale, and the rest of the Valley",
+      "status": "live",
+      "zipRanges": [
+        [
+          "850",
+          "853"
+        ]
+      ]
+    }
+  ]
 }

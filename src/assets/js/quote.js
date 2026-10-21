@@ -58,11 +58,11 @@
     dropzone.addEventListener("drop", (e) => addFiles(Array.from(e.dataTransfer?.files || [])));
   }
 
-  // Prefill from the home page quote card (?property=&service=&quantity=&location=)
+  // Prefill from the home page quote card (?property=&service=&quantity=&zip=)
   const params = new URLSearchParams(window.location.search);
   for (const [key, value] of params) {
     const el = form.elements[key];
-    if (el && value) el.value = value;
+    if (el && value) { el.value = value; el.dispatchEvent(new Event("heywire:prefill")); }
   }
 
   const labelFor = (name) => {
@@ -82,6 +82,17 @@
     if (!form.reportValidity()) return;
 
     const body = new FormData(form);
+
+    // Service area: live / soon / waitlist, decided by the property ZIP (see site.js).
+    const areaResult = window.heywireArea ? window.heywireArea(body.get("zip")) : null;
+    const areaStatus = areaResult ? areaResult.status : "unknown";
+    if (areaStatus === "outside") {
+      setStatus("HEYwire quotes US properties only. Enter the property's 5-digit US ZIP code.", "error");
+      form.elements.zip.focus();
+      return;
+    }
+    body.set("area", areaStatus);
+    body.set("areaName", areaResult && areaResult.area ? areaResult.area.name : "");
 
     // Cloudflare Turnstile: the widget adds a hidden cf-turnstile-response field once
     // the check passes. The endpoint must verify that token server-side (see README).
@@ -113,7 +124,7 @@
         ["Property", labelFor("property")],
         ["Work", labelFor("service")],
         ["Count", labelFor("quantity")],
-        ["Where", labelFor("location")],
+        ["ZIP", labelFor("zip") + (areaResult && areaResult.area ? " · " + areaResult.area.name : "")],
         ["Timing", labelFor("timing")],
         ["As-builts", form.elements.asbuilt && form.elements.asbuilt.checked ? "Added" : ""],
         ["Attached", files.length ? files.length + (files.length === 1 ? " file" : " files") : ""],
@@ -121,6 +132,19 @@
         .filter(([, v]) => v)
         .map(([k, v]) => `<div class="summary__row"><span>${k}</span><strong>${escapeHtml(v)}</strong></div>`)
         .join("");
+
+      const title = document.getElementById("quote-done-title");
+      const lede = document.getElementById("quote-done-lede");
+      const note = document.getElementById("quote-done-note");
+      const contact = form.dataset.contact || "us";
+      if (areaStatus === "waitlist") {
+        title.textContent = "Not there yet. You're first in line.";
+        lede.textContent = "We are not live in that ZIP yet. Your HEY is on the list for the area, and you hear from us the moment crews are onboarding there.";
+        note.innerHTML = "Big job that cannot wait for us to arrive? Email <a href=\"mailto:" + contact + "\">" + contact + "</a> and we will see what we can do sooner.";
+      } else if (areaStatus === "soon") {
+        title.textContent = "You said HEY. Just in time.";
+        lede.textContent = "Crews are onboarding in " + areaResult.area.name + " now. Your job is first in line, and a fixed price follows as soon as they are live.";
+      }
 
       form.hidden = true;
       done.hidden = false;

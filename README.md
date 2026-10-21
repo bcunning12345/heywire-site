@@ -44,7 +44,9 @@ Bracketed placeholders in `src/_data/site.json` and the pricing page:
 | `property` | One of `site.propertyTypes`, e.g. `Hotel or resort` |
 | `service` | Service slug, e.g. `wifi` |
 | `quantity` | Number as a string |
-| `location` | `City, ST` |
+| `zip` | Property ZIP code (5 digits, optional +4) |
+| `area` | `live`, `soon`, or `waitlist` (non-US input never submits), decided client-side from `site.serviceAreas` by ZIP prefix; `unknown` if the lookup failed. Re-check server-side. |
+| `areaName` | Matching service area name, or empty |
 | `timing` | One of the four timing options |
 | `notes` | Free text |
 | `asbuilt` | `yes` when the as-built drawings add-on is ticked, otherwise absent |
@@ -57,6 +59,20 @@ It should respond with JSON `{ "ok": true }` (optionally `quoteId` and `message`
 Quotes are not automated on the customer side: the site promises a written price usually the same day, next day for complex projects. Keep that promise in mind if the estimator ever replies with a number directly.
 
 The estimator will need CORS enabled for the site's origin.
+
+## Service areas (geo-fencing the quote, not the site)
+
+Every page is public everywhere. The property ZIP on the Say HEY form decides what happens next, using `serviceAreas` in `src/_data/site.json`:
+
+```json
+{ "slug": "phoenix", "name": "Greater Phoenix", "note": "Phoenix, Scottsdale, …", "status": "live", "zipRanges": [["850", "853"]] }
+```
+
+- `zipRanges` are inclusive ranges of 3-digit ZIP prefixes. A ZIP matches an area if its first three digits fall inside any range.
+- Anything that is not a 5-digit US ZIP (a Canadian or UK postcode, say) is `outside`: the hint says US only, the field is marked invalid, and the form will not submit. International work is excluded on purpose.
+- `status` is `live` (normal same-day quote) or `soon` (job accepted, "first in line" messaging). Any ZIP that matches no area is a `waitlist` lead: the form still submits, with `area=waitlist`, and the confirmation panel says we are not there yet.
+- To open a metro: add an entry (or flip `soon` to `live`), commit, push. The "Where we're live" section on the home page, the sidebar on Say HEY, and the inline hint under every ZIP field all read from the same list.
+- The estimator should treat the client-side `area` value as a hint and re-derive it from `zip` with the same list, since region will also drive labor rates and travel adders.
 
 ## Spam protection (Cloudflare Turnstile)
 

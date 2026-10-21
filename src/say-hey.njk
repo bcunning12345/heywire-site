@@ -34,8 +34,9 @@ description: Get a fixed-price quote for low-voltage cabling, usually the same d
             <input class="field__input" type="number" name="quantity" min="1" placeholder="24" inputmode="numeric" required>
           </label>
           <label class="field">
-            <span class="field__label">Where</span>
-            <input class="field__input" type="text" name="location" placeholder="City, ST" autocomplete="address-level2" required>
+            <span class="field__label">Property ZIP code <span class="field__opt">US only</span></span>
+            <input class="field__input" type="text" name="zip" placeholder="85004" inputmode="numeric" autocomplete="postal-code" pattern="\d{5}(-\d{4})?" maxlength="10" required>
+            <span class="field__area" aria-live="polite"></span>
           </label>
         </div>
         <label class="field">
@@ -105,10 +106,10 @@ description: Get a fixed-price quote for low-voltage cabling, usually the same d
 
     <div class="quote-done card" id="quote-done" hidden>
       <div class="quote-done__mark">{% include "svg/mark-color.svg" %}</div>
-      <h2 class="h2">You said HEY.</h2>
-      <p class="lede">We have the job. A fixed price lands in your inbox, usually the same day. Complex projects take until the next day, and anything unusual gets a call first.</p>
+      <h2 class="h2" id="quote-done-title">You said HEY.</h2>
+      <p class="lede" id="quote-done-lede">We have the job. A fixed price lands in your inbox, usually the same day. Complex projects take until the next day, and anything unusual gets a call first.</p>
       <div class="summary" id="quote-summary"></div>
-      <p class="muted">Need to change something? Reply to the quote email{% if site.phone %}, or call <a href="{{ site.phoneHref }}">{{ site.phone }}</a>{% endif %}.</p>
+      <p class="muted" id="quote-done-note">Need to change something? Reply to the quote email{% if site.phone %}, or call <a href="{{ site.phoneHref }}">{{ site.phone }}</a>{% endif %}.</p>
       <a class="link-arrow" href="/">Back to the home page</a>
     </div>
 
@@ -118,6 +119,13 @@ description: Get a fixed-price quote for low-voltage cabling, usually the same d
         <ol class="mini-steps">
           {% for step in site.steps %}<li><strong>{{ step.title }}.</strong> {{ step.text }}</li>{% endfor %}
         </ol>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Where we're live</p>
+        <ul class="area-list area-list--compact">
+          {% for a in site.serviceAreas %}<li><span>{{ a.name }}</span><span class="pill{% if a.status != 'live' %} pill--soon{% endif %}">{% if a.status == 'live' %}Live{% else %}Coming soon{% endif %}</span></li>{% endfor %}
+        </ul>
+        <p class="muted">Somewhere else? Say HEY anyway and you are first in line when crews are live there.</p>
       </div>
       <div class="card">
         <p class="eyebrow">{% if site.phone %}Rather talk?{% else %}Rather email?{% endif %}</p>

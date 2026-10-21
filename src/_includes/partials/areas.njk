@@ -1,0 +1,20 @@
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Where we're live</p>
+    <ul class="area-list">
+      {% for a in site.serviceAreas %}
+      <li class="area">
+        <div class="area__head">
+          <h3 class="h3">{{ a.name }}</h3>
+          <span class="pill{% if a.status != 'live' %} pill--soon{% endif %}">{% if a.status == 'live' %}Live{% else %}Coming soon{% endif %}</span>
+        </div>
+        <p class="area__note">{{ a.note }}</p>
+      </li>
+      {% endfor %}
+      <li class="area area--next">
+        <div class="area__head"><h3 class="h3">Your metro next?</h3></div>
+        <p class="area__note">We open new US metros where the HEYs pile up. Say HEY with your ZIP and you are first in line when crews are live there. United States only.</p>
+      </li>
+    </ul>
+  </div>
+</section>
