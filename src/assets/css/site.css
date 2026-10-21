@@ -253,6 +253,7 @@ select.field__input { appearance: none; -webkit-appearance: none; padding-right:
 .addons__title { margin-top: 32px; margin-bottom: 16px; }
 .proof__check--plus { font-weight: 700; font-size: 18px; line-height: 1; }
 .price { font-weight: 900; font-size: 28px; letter-spacing: -0.02em; line-height: 1.1; margin: 4px 0 10px; }
+.card__fine { margin-top: 12px; font-size: 11px; line-height: 1.5; color: var(--sub); }
 .price__unit { display: block; font-weight: 400; font-size: 13px; letter-spacing: 0; color: var(--sub); margin-top: 4px; }
 .fn-ref { color: var(--violet); font-weight: 700; margin-left: 2px; text-decoration: none; }
 .footnote { margin-top: 24px; max-width: 80ch; font-size: 11px; line-height: 1.5; color: var(--sub); }
