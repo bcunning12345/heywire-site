@@ -87,25 +87,25 @@
       "slug": "structured-cabling",
       "title": "Structured cabling",
       "short": "Cat6 and Cat6A drops, patch panels, and the closets that tie them together.",
-      "text": "New drops, re-pulls, and full closet builds. Every run is tested to category spec, labeled at both ends, and documented in a test report you can hand to the next contractor. Add as-built drawings if you want the map, too."
+      "text": "New drops, relocations, or full closet builds. Every run is tested to category spec, labeled at both ends, and documented in a hand-off report. Add as-built drawings if you want the map, too."
     },
     {
       "slug": "fiber",
       "title": "Fiber backbone",
       "short": "Single-mode and multimode between buildings, floors, and closets.",
-      "text": "Riser and campus fiber, fusion-spliced and OTDR-tested. We size the count for the next ten years, not the next ticket."
+      "text": "Riser and campus fiber, terminated, labeled, and tested. We help you plan for the next ten years, not the next ticket."
     },
     {
       "slug": "wifi",
       "title": "Wi-Fi access point drops",
       "short": "Cabling and mounting for guest and back-of-house wireless.",
-      "text": "Drops to every AP location on your heat map, mounted and patched, ready for your network team or ours to bring online."
+      "text": "Drops to every AP location on your heat map, mounted and patched, ready for your network team (or ours) to bring online."
     },
     {
       "slug": "cameras-access",
       "title": "Cameras and access control",
-      "short": "Cabling for cameras, readers, door hardware, and intercoms.",
-      "text": "Clean runs to every camera and door, with the power and data your security integrator specifies. We coordinate directly with them so nothing gets pulled twice."
+      "short": "Cabling for cameras, card readers, and intercoms.",
+      "text": "Clean runs to every camera, reader, and intercom location, with the low-voltage power and data your security integrator specifies. We coordinate directly with them so nothing gets pulled twice."
     },
     {
       "slug": "av-signage",
@@ -116,7 +116,7 @@
     {
       "slug": "guest-room",
       "title": "Guest room technology",
-      "short": "TVs, in-room networking, and smart locks.",
+      "short": "TVs, in-room networking, and in-room devices.",
       "text": "Room-by-room refreshes on a turnover schedule, with rooms back in inventory the same day. Built for brand tech standards and property management deadlines."
     },
     {
@@ -128,7 +128,7 @@
     {
       "slug": "mac",
       "title": "Moves, adds, and changes",
-      "short": "Small jobs, fast. A few drops, a relocated desk, a new door.",
+      "short": "Small jobs, fast. A few drops, a relocated desk, a new reader.",
       "text": "The jobs nobody wants to bid. Say HEY, get a price, and pick a window. Same crew standard as the big ones."
     }
   ],
