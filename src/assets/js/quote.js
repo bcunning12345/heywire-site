@@ -82,6 +82,14 @@
     if (!form.reportValidity()) return;
 
     const body = new FormData(form);
+
+    // Cloudflare Turnstile: the widget adds a hidden cf-turnstile-response field once
+    // the check passes. The endpoint must verify that token server-side (see README).
+    if (form.querySelector(".cf-turnstile") && !body.get("cf-turnstile-response")) {
+      setStatus("One more thing: finish the quick human check above, then Say HEY.", "error");
+      return;
+    }
+
     body.delete("files");
     files.forEach((f) => body.append("files", f, f.name));
     body.set("submittedAt", new Date().toISOString());
@@ -120,6 +128,7 @@
     } catch (err) {
       setStatus("Something went wrong on our end. Email " + (form.dataset.contact || "us") + " and we will price it by hand.", "error");
       submit.disabled = false;
+      if (window.turnstile) window.turnstile.reset();
     }
   });
 

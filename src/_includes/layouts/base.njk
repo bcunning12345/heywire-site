@@ -25,6 +25,6 @@
   </main>
   {% include "partials/footer.njk" %}
   <script src="/assets/js/site.js" defer></script>
-  {% if page.url == "/say-hey/" %}<script src="/assets/js/quote.js" defer></script>{% endif %}
+  {% if page.url == "/say-hey/" %}<script src="/assets/js/quote.js" defer></script>{% if site.turnstileSiteKey %}<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>{% endif %}{% endif %}
 </body>
 </html>

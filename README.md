@@ -31,6 +31,7 @@ npm run build      # writes the site to dist/
 Bracketed placeholders in `src/_data/site.json` and the pricing page:
 
 - `region`, `phone`, `phoneHref`, `email`, `address`, `license`
+- `turnstileSiteKey`: currently Cloudflare's public test key (always passes). Swap for the real site key before launch (see Spam protection).
 - Pricing page: per-drop starting price, run-length threshold, lift height, warranty length
 - Any claim you want to soften or confirm: same-day quote turnaround (next day for complex projects), 30-day price hold, callback within the hour, workmanship warranty
 
@@ -56,6 +57,16 @@ It should respond with JSON `{ "ok": true }` (optionally `quoteId` and `message`
 Quotes are not automated on the customer side: the site promises a written price usually the same day, next day for complex projects. Keep that promise in mind if the estimator ever replies with a number directly.
 
 The estimator will need CORS enabled for the site's origin.
+
+## Spam protection (Cloudflare Turnstile)
+
+The Say HEY form carries a [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) widget. It is free, needs no Cloudflare hosting, and almost never shows a puzzle. Setup:
+
+1. In the Cloudflare dashboard, **Turnstile → Add widget**. Hostnames: `getheywire.com`, `www.getheywire.com` (add `localhost` for local testing). Mode: Managed. You get a **site key** and a **secret key**.
+2. Put the site key in `src/_data/site.json` as `turnstileSiteKey`. Until then the file holds Cloudflare's public test key `1x00000000000000000000AA`, which renders the widget and always passes. Setting it to `""` removes the widget entirely.
+3. The browser posts the token as the `cf-turnstile-response` field. The quote endpoint must verify it before trusting the submission: POST `secret` and `response` (plus the client IP as `remoteip`) to `https://challenges.cloudflare.com/turnstile/v0/siteverify` and reject the request unless the JSON reply has `"success": true`. Keep the secret key on the server only, never in this repo.
+
+`quote.js` refuses to submit until the widget has produced a token, and resets the widget if the endpoint returns an error so the customer can try again.
 
 ## Brand rules in code
 

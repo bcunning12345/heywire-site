@@ -92,6 +92,11 @@ description: Get a fixed-price quote for low-voltage cabling, usually the same d
       </fieldset>
 
       <div class="quote-form__actions">
+        {% if site.turnstileSiteKey %}
+        <div class="captcha">
+          <div class="cf-turnstile" data-sitekey="{{ site.turnstileSiteKey }}" data-theme="light" data-size="flexible" data-action="say-hey"></div>
+        </div>
+        {% endif %}
         <button class="btn btn--primary btn--large btn--block" type="submit">Say HEY {% include "svg/arrow.svg" %}</button>
         <p class="quote-form__status" id="quote-status" role="status" aria-live="polite"></p>
         <p class="muted">By sending, you agree we can contact you about this job. Nothing else, no lists.</p>

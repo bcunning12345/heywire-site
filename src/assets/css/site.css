@@ -269,6 +269,8 @@ select.field__input { appearance: none; -webkit-appearance: none; padding-right:
 .field--check strong { color: var(--plum); }
 .field__check { flex: none; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--violet); cursor: pointer; }
 .field__hint { font-size: 13px; color: var(--sub); }
+.captcha { min-height: 65px; }
+.captcha .cf-turnstile { display: block; }
 .quote-form__status { min-height: 1.4em; font-size: 14px; color: var(--sub); }
 .quote-form__status[data-kind="error"] { color: #B8352B; }
 .quote-done { display: flex; flex-direction: column; gap: 18px; padding: 32px; align-items: flex-start; }
