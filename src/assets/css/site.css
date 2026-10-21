@@ -152,6 +152,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .grid { display: grid; gap: 20px; }
 .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+/* Rows of title + text cards: titles share one row, so body text starts on the same line across the row. */
+.grid--align > .card { display: grid; grid-template-rows: subgrid; grid-row: span 2; align-content: start; row-gap: 8px; }
+.grid--align > .card > .card__title, .grid--align > .card > .h3 { margin-bottom: 0; }
 @media (max-width: 1023px) { .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 899px) { .grid--3 { grid-template-columns: 1fr; } }
 @media (max-width: 599px) { .grid--4 { grid-template-columns: 1fr; } }
