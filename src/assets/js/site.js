@@ -42,9 +42,10 @@
     el.innerHTML = "";
     if (article) { const a = document.createElement("span"); a.className = "rotator__a"; a.textContent = article; el.appendChild(a); }
     const w = document.createElement("span"); w.className = "rotator__w"; w.textContent = word; el.appendChild(w);
+    el.appendChild(document.createTextNode("?"));
   };
 
-  let i = Math.max(0, words.indexOf(el.textContent.trim()));
+  let i = Math.max(0, words.indexOf(el.textContent.trim().replace(/\?$/, "")));
   const HOLD = 2200, OUT = 240;
 
   const tick = () => {
