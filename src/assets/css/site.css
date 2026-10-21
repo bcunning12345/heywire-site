@@ -133,7 +133,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .hero__actions { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
 .hero__region { font-size: 13px; color: var(--sub); display: flex; align-items: center; }
 .nowrap { white-space: nowrap; }
-.rotator { display: inline-block; color: var(--violet); transition: opacity 0.24s ease, transform 0.24s ease; will-change: opacity, transform; }
+.rotator { display: inline-block; transition: opacity 0.24s ease, transform 0.24s ease; will-change: opacity, transform; }
+.rotator__w { color: var(--violet); }
 .rotator.is-out { opacity: 0; transform: translateY(-0.35em); }
 .rotator.is-in { opacity: 0; transform: translateY(0.35em); transition: none; }
 @media (max-width: 899px) {

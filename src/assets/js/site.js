@@ -31,7 +31,20 @@
   if (words.length < 2) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  let i = words.indexOf(el.textContent.trim());
+  // Each entry is "a camera", "an access point", or "digital signage" (no article).
+  // The article stays in the headline color; only the thing itself is violet.
+  const split = (phrase) => {
+    const m = phrase.match(/^(an?)\s+(.+)$/i);
+    return m ? [m[1] + " ", m[2]] : ["", phrase];
+  };
+  const render = (phrase) => {
+    const [article, word] = split(phrase);
+    el.innerHTML = "";
+    if (article) { const a = document.createElement("span"); a.className = "rotator__a"; a.textContent = article; el.appendChild(a); }
+    const w = document.createElement("span"); w.className = "rotator__w"; w.textContent = word; el.appendChild(w);
+  };
+
+  let i = Math.max(0, words.indexOf(el.textContent.trim()));
   const HOLD = 2200, OUT = 240;
 
   const tick = () => {
@@ -39,7 +52,7 @@
     el.classList.add("is-out");
     setTimeout(() => {
       i = (i + 1) % words.length;
-      el.textContent = words[i];
+      render(words[i]);
       el.classList.remove("is-out");
       el.classList.add("is-in");
       void el.offsetWidth; // restart the transition from the "in" start state
