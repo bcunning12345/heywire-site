@@ -46,7 +46,7 @@
   };
 
   let i = Math.max(0, words.indexOf(el.textContent.trim().replace(/\?$/, "")));
-  const HOLD = 2200, OUT = 240;
+  const HOLD = 1400, OUT = 180;
 
   const tick = () => {
     if (document.hidden) return;
