@@ -85,8 +85,8 @@
   "services": [
     {
       "slug": "structured-cabling",
-      "title": "Structured cabling",
-      "short": "Cat6 and Cat6A drops, patch panels, and the closets that tie them together.",
+      "title": "LV Structured Wiring (CAT6/CAT6a)",
+      "short": "CAT6 and CAT6a drops, patch panels, and the closets that tie them together.",
       "text": "New drops, relocations, or full closet builds. Every run is tested to category spec, labeled at both ends, and documented in a hand-off report. Add as-built drawings if you want the map, too."
     },
     {
