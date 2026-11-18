@@ -70,7 +70,7 @@
   ],
   "proof": [
     "We work around guests, never through them. Quiet crews, clean runs, nothing left in a hallway.",
-    "Every run certified, labeled, and documented. You get the test results, not just an invoice.",
+    "Every run tested, labeled, and documented. You get the test results, not just an invoice.",
     "One HEY covers six drops or six hundred rooms. Same pricing logic, same crew standard."
   ],
   "propertyTypes": [
@@ -121,9 +121,9 @@
     },
     {
       "slug": "closet-cleanup",
-      "title": "Closet cleanup and certification",
+      "title": "Closet cleanup and testing",
       "short": "Bring an inherited MDF or IDF back to something you can trust.",
-      "text": "Trace, label, re-dress, and certify what is already there. You get a closet you can read and a test report for every run. As-built drawings are an optional add-on."
+      "text": "Trace, label, re-dress, and test what is already there. You get a closet you can read and a test report for every run. As-built drawings are an optional add-on."
     },
     {
       "slug": "mac",
@@ -159,7 +159,7 @@
     },
     {
       "q": "What do I get when the job is done?",
-      "a": "Certification results for every run, labels at both ends, and a clean site. As-built drawings showing where everything goes are an optional add-on, priced on the quote."
+      "a": "Test results for every run, labels at both ends, and a clean site. As-built drawings showing where everything goes are an optional add-on, priced on the quote."
     },
     {
       "q": "Do you handle the network gear too?",
